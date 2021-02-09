@@ -152,7 +152,10 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
     blur: () => inputRef.current.blur(),
     focus: () => inputRef.current.focus(),
     isFocused: () => inputRef.current.isFocused(),
-    clear: () => inputRef.current.clear(),
+    clear: () => {
+      inputRef.current.clear();
+      setStateText('');
+    },
   }));
 
   const requestShouldUseWithCredentials = () =>
